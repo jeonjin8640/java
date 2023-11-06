@@ -1,0 +1,19 @@
+package exam;
+
+import java.util.Scanner;
+
+public class Exam2 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String str = null;
+		do {
+			System.out.println("A(a).입력 | Q(q).종료");
+			System.out.println("선택 > ");
+			str = sc.next();
+			System.out.println(str);
+		}while(!str.equals("exit"));
+		
+	}
+
+}

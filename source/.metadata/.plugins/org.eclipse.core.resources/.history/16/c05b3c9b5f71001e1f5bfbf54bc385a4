@@ -1,0 +1,92 @@
+package thread;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+class Member{
+	private int id;
+	private String pwd;
+	
+	public Member() {}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getPwd() {
+		return pwd;
+	}
+
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
+
+	@Override
+	public String toString() {
+		return "Member [id=" + id + ", pwd=" + pwd + "]";
+	}	
+}
+class DBConnect{
+	private static DBConnect db = new DBConnect();
+	private DBConnect() {}
+	public static DBConnect getInstance() {
+		return db;
+	}
+	Connection getConnection()
+	Class.forName("com.mysql.jj.jdbc.Driver");
+	String url = "jdbc:mysql:/localhost:3306/mydb";
+	String uid = "root";
+	String pwd = "1234";
+	Connection conn = DriverManager.getConnection(url, uid, pwd);
+	return conn;
+}
+
+class MemberDao{
+	Scanner sc = new Scanner(System.in);
+	Connection conn = null;
+	PreparedStatement pstm = null;
+	ResultSet rs = null;
+	DBConnect db = DBConnect.getInstance();
+	int menu() {
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		int choice = sc.nextInt();
+		return choice;
+	}
+	
+	List<Member> getMembers(){
+		System.out.println();
+		System.out.println();
+		List<Member> list = new ArrayList<Member>();
+		conn = db.getConnection();
+		String sql = "select * from member order by id desc;";
+		pstm = conn.prepareStatement(sql);
+		rs = pstm.executeQuery();
+		while( rs.next()) {
+			Member m = new Member();
+			m.setId(rs.getInt(1));
+			m.setPasswd(rs.getInt(2));
+			
+		}
+	}
+	
+}
+
+
+
+
+
+public class Ex {
+
+	public static void main(String[] args) {
+
+	}
+
+}

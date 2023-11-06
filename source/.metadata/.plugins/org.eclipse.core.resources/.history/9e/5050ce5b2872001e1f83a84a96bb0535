@@ -1,0 +1,16 @@
+package exam;
+
+public class Exam6 {
+
+	public static void main(String[] args) {
+		String jumin = "001234-1234567";
+		int gender = Integer.parseInt(jumin.substring(7,8));
+		if( gender % 2 == 0 ) {
+		System.out.println("여자");
+		}else {
+		System.out.println("남자");
+		}
+
+	}
+
+}

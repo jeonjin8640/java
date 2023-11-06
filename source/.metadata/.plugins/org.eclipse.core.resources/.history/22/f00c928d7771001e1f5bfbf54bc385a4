@@ -1,0 +1,18 @@
+package thread;
+
+import java.util.Scanner;
+
+public class Ex{
+	public static void main(String[] args) {
+		String jumin = "000323-1134567";
+		int gender = Integer.parseInt(jumin.substring(7, 8));
+		if(gender%2 == 0) {
+			System.out.println("여");
+		}else {
+			System.out.println("남");
+		}
+		
+		
+	}
+	
+}

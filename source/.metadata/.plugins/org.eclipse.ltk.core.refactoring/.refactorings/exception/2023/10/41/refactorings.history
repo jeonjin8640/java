@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;exception.UseridCheck&apos; to &apos;UseridCheckEx&apos;&#x0D;&#x0A;- Original project: &apos;exception&apos;&#x0D;&#x0A;- Original element: &apos;exception.UseridCheck&apos;&#x0D;&#x0A;- Renamed element: &apos;exception.UseridCheckEx&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;UseridCheck&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;exception{UseridCheck.java[UseridCheck" matchStrategy="1" name="UseridCheckEx" qualified="false" references="true" similarDeclarations="false" stamp="1697163317980" textual="false" version="1.0"/>
+</session>

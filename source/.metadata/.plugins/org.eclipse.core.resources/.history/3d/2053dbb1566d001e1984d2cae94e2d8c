@@ -1,0 +1,29 @@
+package thread;
+
+class NumCount1 extends Thread {
+	
+	public void run() {
+		
+	}
+	
+}
+
+class HanCount1 extends Thread {
+	
+	public void run() {
+		
+	}
+	
+}
+
+public class ThreadEx2 {
+
+	public static void main(String[] args) {
+		HanCount1 hc1 = new HanCount1();
+		hc1.start();
+		
+		NumCount1 nc1 = new NumCount1();
+		nc1.start();
+	}
+
+}

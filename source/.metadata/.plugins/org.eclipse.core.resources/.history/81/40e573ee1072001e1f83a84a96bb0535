@@ -1,0 +1,22 @@
+package exam;
+
+import java.util.Scanner;
+
+public class Exam2 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("A(a).입력 | Q(q).종료");
+		System.out.print("선택 > ");
+		String str = "A";
+		String str2 = "a";
+		String str3 = "Q";
+		String str4 ="q";
+		
+		if(str.equals(str) || str2.equals(str2))  {
+			System.out.println("영어입력(띄어쓰기 없이) > ");
+			str = sc.next();
+		}
+	}
+}		
+

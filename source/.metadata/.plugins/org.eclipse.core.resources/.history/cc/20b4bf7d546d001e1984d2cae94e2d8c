@@ -1,0 +1,24 @@
+package thread;
+
+class HanCount extends Thread {
+	public void run() {
+		
+	}
+}
+
+
+
+public class ThreadEx1 {
+
+	public static void main(String[] args) throws InterruptedException {
+		//1 하나, 2 둘...
+		
+		int[] intArr = {1, 2, 3, 4, 5};
+		for(int i = 0; i < intArr.length; ++i) {
+			System.out.println(intArr[i]);
+			Thread.sleep(500);
+		}
+		
+	}
+
+}

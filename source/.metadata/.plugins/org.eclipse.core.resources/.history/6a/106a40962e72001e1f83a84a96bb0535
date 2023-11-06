@@ -1,0 +1,60 @@
+package exam;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class MemberDao {
+	Scanner sc = new Scanner(System.in);
+	Connection conn = null;
+	PreparedStatement pstm = null;
+	ResultSet rs = null;
+	DBConnect db = DBConnect.getInstance();
+
+	int menu() {
+	System.out.println("=====회원가입 메뉴=====");
+	System.out.println("1.회원목록|2.회원가입");
+	System.out.println("선택>");
+	int choice = sc.nextInt();
+	return choice;
+	}
+
+	List<Member> getMembers(){
+	System.out.println("회원목록입니다.");
+	System.out.println("");
+	List<Member> list = new ArrayList<Member>();
+	conn = db.getConnection();
+	String sql = "select * from member order by id desc;";
+	pstm = conn.prepareStatement(sql);
+	rs= pstmt.executeQuery();
+	while( rs.next() ){
+	Member m = new Member();
+	m.setId( rs.getInt(1) );
+	m.setPasswd( rs.getInt(2) );
+	list.add(m)
+	}
+	return list;
+	}
+
+	int setMember() {
+	conn = db.getConnection();
+	String sql = "insert into member value(null, ?);";
+	System.out.println("회원가입입니다.");
+	System.out.println("");
+	Member m = new Member();
+	m.setPasswd("1234");
+	pstmt = conn.prepareStatement(sql);
+	pstmt.setString(1, m.getPasswd() );
+	int result = pstmt.executeUpdate();
+	return result;
+	}
+
+	void disconnect() {
+	System.out.println("종료");
+	System.exit(0);
+	}
+
+}

@@ -1,0 +1,73 @@
+package exam;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class MemberDao {
+	Scanner sc = new Scanner(System.in);
+	Connection conn = null;
+	PreparedStatement pstm = null;
+	ResultSet rs = null;
+	DBConnect db = DBConnect.getInstance();
+
+	int menu() {
+	System.out.println("=====회원가입 메뉴=====");
+	System.out.println("1.회원목록|2.회원가입");
+	System.out.println("선택>");
+	int choice = sc.nextInt();
+	return choice;
+	}
+
+	List<Member> getMembers() throws SQLException, ClassNotFoundException{
+	System.out.println("회원목록입니다.");
+	System.out.println("");
+	List<Member> list = new ArrayList<Member>();
+	conn = db.getConnection();
+	String sql = "select * from kordb_member order by mem_id desc;";
+	pstm = conn.prepareStatement(sql);
+	rs= pstm.executeQuery();
+	while( rs.next() ){
+	Member m = new Member();
+	m.setMem_id( rs.getInt(1) );
+	m.setMem_name( rs.getString(2) );
+	m.setMem_pwd( rs.getString(3));
+	m.setMem_start_regdate( rs.getString(4) );
+	m.setMem_gender( rs.getString(5) );
+	m.setMem_intro( rs.getString(6));
+	list.add(m);
+	}
+	return list;
+	}
+
+	int setMember() throws SQLException, ClassNotFoundException {
+	conn = db.getConnection();
+	String sql = "insert into kordb_member value(null, ?, ?, now(), ?, ?);";
+	System.out.println("회원가입입니다.");
+	System.out.println("");
+	Member m = new Member();
+				m.setMem_name("김철수");
+				m.setMem_pwd("0000");
+//				m.setMem_start_regdate(sql);
+				m.setMem_gender("M");
+				m.setMem_intro("자기소개3");
+	pstm = conn.prepareStatement(sql);
+	pstm.setString(1, m.getMem_name() );
+	pstm.setString(2, m.getMem_pwd() );
+	
+	pstm.setString(3, m.getMem_gender() );
+	pstm.setString(4, m.getMem_intro() );
+	int result = pstm.executeUpdate();
+	return result;
+	}
+
+	void disconnect() {
+	System.out.println("종료");
+	System.exit(0);
+	}
+
+}

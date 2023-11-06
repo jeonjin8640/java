@@ -1,0 +1,8 @@
+package exam;
+
+import java.util.Scanner;
+
+public class Exam6 {
+
+	public static void main(String[] args) {
+	}}

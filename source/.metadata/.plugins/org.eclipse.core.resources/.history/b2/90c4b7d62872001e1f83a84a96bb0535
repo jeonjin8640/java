@@ -1,0 +1,58 @@
+package exam;
+
+import java.util.Scanner;
+
+public class Exam6 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("학년(숫자)입력 > ");
+		boolean run = true;
+		
+		while(run) {
+		int choice = sc.nextInt();
+		System.out.println(choice);
+		int num = sc.nextInt();
+		
+		switch(choice) {
+		case 1:
+			System.out.println("점수입력 > ");
+			int fir = sc.nextInt();
+			if (fir < 60) {
+				System.out.println("불합격");
+			}else {
+				System.out.println("합격");
+			}	
+			break;
+		case 2:
+			System.out.println("점수입력 > ");
+			int sec = sc.nextInt();
+			if (sec < 60) {
+				System.out.println("불합격");
+			}else {
+				System.out.println("합격");
+			}	
+			break;
+		case 3:
+			System.out.println("점수입력 > ");
+			int thi = sc.nextInt();
+			if (thi < 60) {
+				System.out.println("불합격");
+			}else {
+				System.out.println("합격");
+			}	
+			break;
+		
+		case 4:
+			System.out.println("점수입력 > ");
+			int fort = sc.nextInt();
+			if (fort < 80) {
+				System.out.println("재시험입니다");
+			}else {
+				System.out.println("졸업입니다");
+			}
+			break;
+	}
+		}}
+}
+

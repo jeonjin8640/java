@@ -1,0 +1,20 @@
+package tut05;
+
+public class ScannerEx2 {
+
+	public static void main(String[] args) {
+		//1. 문자열 -> 숫자로
+		//2. 숫자 -> 문자열
+		//3. Scanner -> 형변환
+		
+		int add = 10;
+		String age = "100";
+		System.out.println(add + age);
+		
+		//Integer.parseInt(변수명)
+		int tmp = Integer.parseInt(age);
+		int total = add + tmp;
+		System.out.println("변환하여 더한 나이는 " + total +"입니다.");
+	}
+
+}
